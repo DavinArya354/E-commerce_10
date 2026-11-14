@@ -1,30 +1,30 @@
 <?php
 
+use App\Http\Controllers\CartController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
-use PHPUnit\Framework\MockObject\Stub\ReturnCallback;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [HomeController::class, 'index']);
 
-Route::get('/products', function () {
-    echo "Products Page";
-});
+Route::get('/home2', [HomeController::class, 'index2']);
 
-Route::get('/cart', function () {
-    echo "Cart Page";
-});
+Route::get('/home-layout', [HomeController::class, 'indexLayoutComponent']);
+
+Route::get('/products', [CartController::class, 'index']);
+
+Route::get('/cart', [CartController::class, 'index'])->name('cart.page');
+Route::post('/cart', [CartController::class, 'update'])->name('cart.update');
 
 Route::get('/checkout', function () {
-    echo "Checkout Page";
-});
+    echo 'Checkout Page';
+})->name('checkout.page');
 
 Route::get('/about', function () {
-    return "About Page";
+    return 'About Page';
 });
 
 Route::get('/hello', function () {
-    return "Hello, World!";
+    return 'Hello, World!';
 });
 
 Route::get('/greeting/{name}/age/{age}', function ($name, $age) {
