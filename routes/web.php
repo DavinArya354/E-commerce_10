@@ -5,7 +5,7 @@ use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index']);
-
+ 
 Route::get('/home2', [HomeController::class, 'index2']);
 
 Route::get('/home-layout', [HomeController::class, 'indexLayoutComponent']);
